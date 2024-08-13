@@ -1,7 +1,19 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Seo } from "./seo";
+import { FormContext } from "../context/formContext";
 
+type FormType = {
+  name: string;
+  age: number;
+  email: string;
+};
+export type FormContextType = {
+  data: FormType;
+  saveData: (data: FormType) => void;
+  showData: () => void;
+};
 export const FormHook = () => {
+  const { saveData } = useContext(FormContext) as FormContextType;
   const [data, setData] = useState({
     name: "",
     age: 0,
@@ -11,6 +23,7 @@ export const FormHook = () => {
     e.preventDefault();
     const { name, age, email } = data;
     alert("Name: " + name + "\n" + " Age: " + age + "\n" + " Email: " + email);
+    saveData(data);
     setData({
       name: "",
       age: 0,
@@ -23,7 +36,10 @@ export const FormHook = () => {
   };
   return (
     <main className="flex h-screen flex-col items-center justify-center gap-5">
-       <Seo title="Form build with useState" desc="This form is made using useState Hook" />
+      <Seo
+        title="Form build with useState"
+        desc="This form is made using useState Hook"
+      />
       <h1 className="text-3xl">Form with useState</h1>
       <form
         onSubmit={onSubmit}

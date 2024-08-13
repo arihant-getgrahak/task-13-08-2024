@@ -2,8 +2,21 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { Seo } from "./seo";
+import { useEffect, useContext } from "react";
+import { FormContext } from "../context/formContext";
 
+type FormType = {
+  name: string;
+  age: number;
+  email: string;
+};
+export type FormContextType = {
+  data: FormType;
+  saveData: (data: FormType) => void;
+  showData: () => void;
+};
 export const FormZod = () => {
+  const { saveData } = useContext(FormContext) as FormContextType;
   const schema = z.object({
     name: z.string().min(1, { message: "Required" }),
     age: z
@@ -14,8 +27,6 @@ export const FormZod = () => {
       .default(10),
     email: z.string().email({ message: "Invalid email" }),
   });
-
-  // type FormData = z.infer<typeof schema>;
 
   const {
     register,
@@ -33,11 +44,19 @@ export const FormZod = () => {
   const onSubmit = handleSubmit((data) => {
     const { name, age, email } = data;
     alert("Name: " + name + "\n" + " Age: " + age + "\n" + " Email: " + email);
+    saveData(data);
   });
+
+  useEffect(() => {
+    alert("Use Effect Trigerred");
+  }, []);
   return (
     <>
       <main className="flex h-screen flex-col items-center justify-center gap-5">
-        <Seo title="Form build with react-hook-form + Zod" desc="This form is made using react-hook-form + Zod Hook" />
+        <Seo
+          title="Form build with react-hook-form + Zod"
+          desc="This form is made using react-hook-form + Zod Hook"
+        />
         <h1 className="text-xl lg:text-3xl">Form with React-Hook-Form + Zod</h1>
         <form
           onSubmit={onSubmit}
