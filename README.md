@@ -1,9 +1,9 @@
 
-# Random Quote Generator 
+# Form Input Website
 
-Random Quote Generator is single page website using Vite (React). This website is made for task assign to me. 
+Form Input Website is single page website using Vite (React). This website is made for task assign to me. 
 This website is deployed to 
-[here](https://task-12-08-2024.vercel.app/). 
+[here](https://task-13-08-2024.vercel.app/). 
 
 ## Tech Stack
 
