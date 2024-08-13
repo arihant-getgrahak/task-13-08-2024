@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { Helmet } from "react-helmet";
+import { Seo } from "./seo";
 
 export const FormZod = () => {
   const schema = z.object({
@@ -37,13 +37,7 @@ export const FormZod = () => {
   return (
     <>
       <main className="flex h-screen flex-col items-center justify-center gap-5">
-        <Helmet>
-          <title>Form build with react-hook-form + Zod</title>
-          <meta
-            name="description"
-            content="This form is made using react-hook-form + Zod Hook"
-          />
-        </Helmet>
+        <Seo title="Form build with react-hook-form + Zod" desc="This form is made using react-hook-form + Zod Hook" />
         <h1 className="text-xl lg:text-3xl">Form with React-Hook-Form + Zod</h1>
         <form
           onSubmit={onSubmit}

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {Helmet} from "react-helmet";
+import { Seo } from "./seo";
 
 export const FormHook = () => {
   const [data, setData] = useState({
@@ -23,10 +23,7 @@ export const FormHook = () => {
   };
   return (
     <main className="flex h-screen flex-col items-center justify-center gap-5">
-      <Helmet>
-        <title>Form build with useState</title>
-        <meta name="description" content="This form is made using useState Hook" />
-    </Helmet>
+       <Seo title="Form build with useState" desc="This form is made using useState Hook" />
       <h1 className="text-3xl">Form with useState</h1>
       <form
         onSubmit={onSubmit}
