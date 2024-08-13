@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Seo } from "./seo";
 import { FormContext } from "../context/formContext";
 
@@ -34,6 +34,9 @@ export const FormHook = () => {
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
+  useEffect(() =>{
+   alert("Welcome to the form made using useState");
+  },[])
   return (
     <main className="flex h-screen flex-col items-center justify-center gap-5">
       <Seo

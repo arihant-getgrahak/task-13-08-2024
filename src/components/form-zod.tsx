@@ -48,7 +48,7 @@ export const FormZod = () => {
   });
 
   useEffect(() => {
-    alert("Use Effect Trigerred");
+    alert("Welcome to the form made using react-hook-form + Zod");
   }, []);
   return (
     <>
