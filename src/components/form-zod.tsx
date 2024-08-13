@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import { Helmet } from "react-helmet";
 
 export const FormZod = () => {
   const schema = z.object({
@@ -32,10 +33,18 @@ export const FormZod = () => {
   const onSubmit = handleSubmit((data) => console.log(data));
   return (
     <>
-      <main className="flex h-screen flex-col items-center justify-center">
+      <main className="flex h-screen flex-col items-center justify-center gap-5">
+        <Helmet>
+          <title>Form build with react-hook-form + Zod</title>
+          <meta
+            name="description"
+            content="This form is made using react-hook-form + Zod Hook"
+          />
+        </Helmet>
+        <h1 className="text-xl lg:text-3xl">Form with React-Hook-Form + Zod</h1>
         <form
           onSubmit={onSubmit}
-          className="border-2 border-red-500 p-5 flex flex-col gap-5"
+          className="border-2 border-red-500 p-5 flex flex-col gap-5 lg:w-1/3"
         >
           <div className="flex flex-col gap-2">
             <label htmlFor="name">Enter your Name</label>

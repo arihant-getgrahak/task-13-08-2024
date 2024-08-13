@@ -4,9 +4,10 @@ export const Header = () => {
       <a href="/" className="text-2xl font-bold hidden lg:block">
         Header
       </a>
-      <div className="flex gap-5 text-[1.2rem] ">
+      <div className="flex gap-5 text-sm lg:text-[1.2rem] ">
         <a href="/">Form with zod</a>
-        <a href="/hook-form">Form with hook</a>
+        <a href="/hook-form">Form with useState</a>
+        <a href="/ref-form">Form with useRef</a>
       </div>
       <p className="text-xl font-semibold hidden lg:block">
         Created by Arihant Jain
