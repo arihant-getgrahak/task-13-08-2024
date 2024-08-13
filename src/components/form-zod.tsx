@@ -2,12 +2,15 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
-export const Form = () => {
+export const FormZod = () => {
   const schema = z.object({
     name: z.string().min(1, { message: "Required" }),
-    age: z.number().min(10, {
-      message: "Age must be greater than 10",
-    }),
+    age: z
+      .number()
+      .min(10, {
+        message: "Age must be greater than 10",
+      })
+      .default(10),
     email: z.string().email({ message: "Invalid email" }),
   });
 
@@ -19,6 +22,11 @@ export const Form = () => {
     formState: { errors },
   } = useForm({
     resolver: zodResolver(schema),
+    defaultValues: {
+      name: "",
+      age: 0,
+      email: "",
+    },
   });
 
   const onSubmit = handleSubmit((data) => console.log(data));
