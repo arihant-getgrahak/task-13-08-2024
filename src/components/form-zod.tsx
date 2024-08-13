@@ -30,7 +30,7 @@ export const FormZod = () => {
     },
   });
 
-  const onSubmit = handleSubmit((data) => console.log(data));
+  const onSubmit = handleSubmit((data) => alert(data));
   return (
     <>
       <main className="flex h-screen flex-col items-center justify-center gap-5">
