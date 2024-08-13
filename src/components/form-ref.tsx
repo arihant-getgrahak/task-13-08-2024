@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet";
 
 export const FormRef = () => {
   const data = useRef({
@@ -9,7 +9,8 @@ export const FormRef = () => {
   });
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    alert(data);
+    const { name, age, email } = data.current;
+    alert("Name: " + name + "\n" + " Age: " + age + "\n" + " Email: " + email);
     data.current = {
       name: "",
       age: 0,
@@ -24,9 +25,12 @@ export const FormRef = () => {
     <main className="flex h-screen flex-col items-center justify-center gap-5">
       <Helmet>
         <title>Form build with useState</title>
-        <meta name="description" content="This form is made using useState Hook" />
-    </Helmet>
-       <h1 className="text-3xl">Form with useRef</h1>
+        <meta
+          name="description"
+          content="This form is made using useState Hook"
+        />
+      </Helmet>
+      <h1 className="text-3xl">Form with useRef</h1>
       <form
         onSubmit={onSubmit}
         className="border-2 border-red-500 p-5 flex flex-col gap-5 lg:w-1/3"

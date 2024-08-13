@@ -9,7 +9,8 @@ export const FormHook = () => {
   });
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    alert(data);
+    const { name, age, email } = data;
+    alert("Name: " + name + "\n" + " Age: " + age + "\n" + " Email: " + email);
     setData({
       name: "",
       age: 0,
