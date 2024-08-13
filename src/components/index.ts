@@ -4,6 +4,4 @@ import { Seo } from "./seo";
 import { Footer } from "./footer";
 import { ErrorPage } from "./404";
 import { FormHook } from "./form-hook";
-import { FormRef } from "./form-ref";
-
-export { Header, FormZod, Seo, Footer, ErrorPage, FormHook, FormRef };
+export { Header, FormZod, Seo, Footer, ErrorPage, FormHook };
